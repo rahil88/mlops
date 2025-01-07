@@ -49,3 +49,9 @@ jobs:
       run: |
         docker run -d -p 8080:8080 rahilshah800/ml_model
     
+        - name: Push Docker image to Docker Hub
+  run: |
+    echo Sahr@9428 | docker login --username rahilshah800 --password-stdin
+    docker tag rahilshah800/ml_model:latest rahilshah800/ml_model:latest
+    docker push rahilshah800/ml_model:latest
+
