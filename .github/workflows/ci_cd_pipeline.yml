@@ -28,7 +28,7 @@ jobs:
 
     - name: Build Docker Image
       run: |
-        docker build -t rahilshah800/ml_model .
+        docker build -t rahilshah800/my-model .
 
 
     - name: Run tests
@@ -39,7 +39,7 @@ jobs:
     - name: Push Docker image to Docker Hub
       run: |
           echo Sahr@9428 | docker login --username rahilshah800 --password-stdin
-          docker push rahilshah800/ml_model:latest
+          docker push rahilshah800/my-model:latest
       
   deploy:
     runs-on: ubuntu-latest
@@ -47,11 +47,11 @@ jobs:
     steps:
       - name: Deploy Docker container
       run: |
-        docker run -d -p 8080:8080 rahilshah800/ml_model
+        docker run -d -p 8080:8080 rahilshah800/my-model
     
         - name: Push Docker image to Docker Hub
   run: |
     echo Sahr@9428 | docker login --username rahilshah800 --password-stdin
-    docker tag rahilshah800/ml_model:latest rahilshah800/ml_model:latest
-    docker push rahilshah800/ml_model:latest
+    docker tag rahilshah800/my-model:latest rahilshah800/my-model:latest
+    docker push rahilshah800/my-model:latest
 
