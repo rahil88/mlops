@@ -38,7 +38,7 @@ jobs:
 
     - name: Push Docker image to Docker Hub
       run: |
-          echo $DOCKER_PASSWORD | docker login --username rahilshah800 --password-stdin
+          echo Sahr@9428 | docker login --username rahilshah800 --password-stdin
           docker push rahilshah800/ml_model:latest
       
   deploy:
