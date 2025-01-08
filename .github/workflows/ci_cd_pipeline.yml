@@ -44,8 +44,7 @@ jobs:
     - name: Push Docker image to Docker Hub
       if: github.ref == 'refs/heads/files'  # Only push Docker image from the 'files' branch
       run: |
-        echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username rahilshah800 --password-stdin
-        docker tag rahilshah800/my-model:latest rahilshah800/my-model:latest
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
         docker push rahilshah800/my-model:latest
 
   deploy:
@@ -58,8 +57,8 @@ jobs:
 
     - name: Log in to Docker Hub
       run: |
-        echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username rahilshah800 --password-stdin
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
 
     - name: Deploy Docker container
       run: |
-        docker run -d -p 8080:8080 rahilshah800/my-model: latest
+        docker run -d -p 8080:8080 rahilshah800/my-model:latest
