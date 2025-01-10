@@ -22,7 +22,7 @@ RUN pip install -r requirements.txt
 COPY . /app/
 
 # Expose port 5000 (Optional: if you want to run a web app, adjust as needed)
-EXPOSE 8080
+EXPOSE 8000
 
 # Run the Python script
 CMD ["python", "app.ipynb"]
